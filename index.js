@@ -6,7 +6,7 @@ app.get('/', (req, res) => res.send('ИИ-Бот защиты сервера а�
 app.listen(PORT, () => console.log(`Сервер мониторинга запущен на порту ${PORT}`));
 const botArgs = {
     host: 'ToxaKraftXXX.aternos.me',
-    port: 25565,                   
+    port: 49471,                   
     username: 'burmalda488',       
     version: '1.21.11'             
 };
