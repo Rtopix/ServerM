@@ -10,7 +10,9 @@ const botArgs = {
     host: 'ToxaKraftXXX.aternos.me',
     port: 49471,                    
     username: 'burmalda488',       
-    version: '1.21.11'              
+    version: '1.21.11',
+    checkTimeoutInterval: 60 * 1000, 
+    timeout: 60 * 1000               
 };
 
 const PASSWORD = 'MellStroy'; 
@@ -44,6 +46,7 @@ function createMinecraftBot() {
         let step = 0;
         console.log('[AI] Movement routine started.');
 
+        // Увеличиваем интервал до 2 секунд, чтобы не перегружать поток Node.js
         aiBrainInterval = setInterval(() => {
             if (!bot || !bot.entity) return;
 
@@ -65,7 +68,7 @@ function createMinecraftBot() {
             }
 
             step = (step + 1) % 4;
-        }, 1000 + Math.random() * 500);
+        }, 2000); 
     }
 
     bot.on('death', () => {
