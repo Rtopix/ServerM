@@ -7,8 +7,7 @@ app.get('/', (req, res) => res.send('OK'));
 app.listen(PORT, () => console.log(`[SYSTEM] Web server running on port ${PORT}`));
 
 const botArgs = {
-    host: 'ToxaKraftXXX.aternos.me',
-    port: 49471,                    
+    host: 'ToxaKraftXXX.aternos.me', 
     username: 'burmalda488',       
     version: '1.21.11',
     checkTimeoutInterval: 60 * 1000, 
@@ -25,7 +24,6 @@ function createMinecraftBot() {
 
     bot.on('spawn', () => {
         console.log(`[GAME] Bot ${botArgs.username} spawned.`);
-        
         if (aiBrainInterval) clearInterval(aiBrainInterval);
 
         setTimeout(() => {
@@ -46,7 +44,6 @@ function createMinecraftBot() {
         let step = 0;
         console.log('[AI] Movement routine started.');
 
-        // Увеличиваем интервал до 2 секунд, чтобы не перегружать поток Node.js
         aiBrainInterval = setInterval(() => {
             if (!bot || !bot.entity) return;
 
@@ -74,10 +71,7 @@ function createMinecraftBot() {
     bot.on('death', () => {
         console.log('[GAME] Bot died. Respawning...');
         if (aiBrainInterval) clearInterval(aiBrainInterval);
-        
-        setTimeout(() => {
-            bot.respawn();
-        }, 2000);
+        setTimeout(() => { bot.respawn(); }, 2000);
     });
 
     bot.on('end', (reason) => {
